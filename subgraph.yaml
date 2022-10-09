@@ -1,0 +1,29 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: DappStopRegistry
+    network: goerli
+    source:
+      address: "0xbF45C6718ccb09fE18478470bE9E1c563CbdC9a7"
+      abi: DappStopRegistry
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Bought
+        - Registered
+        - Updated
+      abis:
+        - name: DappStopRegistry
+          file: ./abis/DappStopRegistry.json
+      eventHandlers:
+        - event: Bought(indexed address,indexed uint256)
+          handler: handleBought
+        - event: Registered(indexed address,indexed uint256,(address,string,string,uint256))
+          handler: handleRegistered
+        - event: Updated(indexed uint256,(address,string,string,uint256))
+          handler: handleUpdated
+      file: ./src/dapp-stop-registry.ts
