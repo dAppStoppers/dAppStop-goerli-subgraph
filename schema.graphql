@@ -1,6 +1,20 @@
-type ExampleEntity @entity {
+type Dapp @entity {
   id: ID!
-  count: BigInt!
-  buyer: Bytes! # address
+  creator: Bytes!
+  popURI: String!
+  ceramicURI: String!
+  price: BigInt!
   dappId: BigInt! # uint256
+}
+
+type EpnsNotificationCounter @entity {
+  id: ID!
+  totalCount: BigInt!
+}
+
+type EpnsPushNotification @entity {
+  id: ID!
+  notificationNumber: BigInt!
+  recipient: String!
+  notification: String!
 }

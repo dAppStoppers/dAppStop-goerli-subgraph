@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.4
 schema:
   file: ./schema.graphql
 dataSources:
@@ -6,8 +6,9 @@ dataSources:
     name: DappStopRegistry
     network: goerli
     source:
-      address: "0xbF45C6718ccb09fE18478470bE9E1c563CbdC9a7"
+      address: "0xC09a6732162dd85322b98794ca74B63164A38D0C"
       abi: DappStopRegistry
+      startBlock: 7738779
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
